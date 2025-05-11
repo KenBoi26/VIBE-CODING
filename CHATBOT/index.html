@@ -1,40 +1,80 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enhanced Glossy Chatbot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Glossy Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="light-mode">
-  <nav class="navbar flex justify-between items-center">
-    <div class="font-bold text-lg">Glossy Chatbot</div>
-    <div>
-      <button id="toggleTheme" class="px-4 py-2 rounded bg-green-500 text-white">Toggle Theme</button>
-    </div>
-  </nav>
+<body class="dark-mode">
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
 
-  <div class="flex flex-col md:flex-row">
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-header">Chats</div>
-      <div class="chats-container" id="chatsContainer"></div>
-      <button class="new-chat-btn theme-accent-light" id="newChatBtn">New Chat</button>
+        <div class="sidebar-header">Chats</div>
+        <div class="chats-container" id="chats-list">
+            <!-- Chat items will be populated here -->
+        </div>
+        <button class="new-chat-btn theme-accent-dark" id="new-chat-btn">
+            New Chat
+        </button>
+        <div class="theme-toggle" id="theme-toggle">
+            <span>Theme</span>
+            <div class="toggle-wrapper">
+                <span class="toggle-icon">🌙</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="theme-switch" class="toggle-input">
+                    <label for="theme-switch" class="toggle-label"></label>
+                </div>
+                <span class="toggle-icon">☀️</span>
+            </div>
+        </div>
     </aside>
 
-    <main class="main-content flex-1">
-      <div class="chat-container" id="chatContainer">
-        <div class="overflow-auto flex-1 p-4" id="messages"></div>
-        <form id="chatForm" class="flex p-4 border-t">
-          <input type="text" id="promptInput" class="flex-1 p-2 border rounded mr-2" placeholder="Type a prompt..." required>
-          <button class="px-4 py-2 bg-green-500 text-white rounded">Send</button>
-        </form>
-      </div>
-    </main>
-  </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">GlossyWeb</a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Services</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
 
-  <script src="app.js"></script>
+        <div class="chat-container">
+            <div class="chat-header" id="chat-header">
+                New Conversation
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot new">
+                    Hello there! I'm your glossy assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button" class="theme-accent-dark" aria-label="Send message">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="send-icon">
+                        <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.519 60.519 0 0 0 3.478 2.404z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 GlossyWeb Creations. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
