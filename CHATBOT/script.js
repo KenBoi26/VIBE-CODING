@@ -411,8 +411,11 @@ class UIManager {
         
         // Send message
         sendButton.addEventListener('click', () => this.sendMessage());
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.sendMessage();
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Prevent default behavior like line breaks
+                this.sendMessage();
+            }
         });
         
         // New chat
